@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import {
   Wifi,
   Wrench,
@@ -63,44 +65,55 @@ export default function HomePage() {
       <Header />
 
       {/* HERO SECTION */}
-      <section className="grid lg:grid-cols-2 min-h-screen border-b border-[#dbecec]">
+      <section className="min-h-screen flex items-center justify-center bg-[#eef8f7] px-6 py-20">
 
         {/* LEFT */}
-        <div className="flex flex-col justify-center px-10 lg:px-16 py-20 bg-[#eef8f7]">
+        {/* LEFT */}
+<div className="max-w-6xl mx-auto text-center flex flex-col items-center">
 
-          <h1 className="text-4xl lg:text-6xl font-black leading-[1.05] tracking-tight text-[#0d0d3f]">
-            Affordable & Comfortable Living in Dubai & Sharjah
-          </h1>
+  <h1 className="text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight text-[#0d0d3f] max-w-5xl">
+    Affordable & Comfortable Living in Dubai & Sharjah
+  </h1>
 
-          <p className="mt-10 text-lg text-[#5b6475] max-w-xl leading-relaxed">
-            Fully furnished shared accommodations for families,
-            bachelors, and professionals. Experience premium
-            comfort without the premium price tag.
-          </p>
+  <p className="mt-10 text-xl text-[#5b6475] max-w-3xl leading-relaxed">
+    Fully furnished shared accommodations for families,
+    bachelors, and professionals. Experience premium
+    comfort without the premium price tag.
+  </p>
 
-          <div className="flex gap-6 mt-14">
+  <div className="flex flex-wrap items-center justify-center gap-6 mt-14">
 
-            <button className="bg-[#11b5ae] hover:bg-[#0f9d97] text-white px-10 py-5 rounded-[30px] text-lg font-semibold transition shadow-sm">
-              VIEW PROPERTIES
-            </button>
+    <Link href="/properties">
+      <button className="bg-[#11b5ae] hover:bg-[#0f9d97] text-white px-10 py-5 rounded-[30px] text-lg font-semibold transition shadow-sm min-w-[220px]">
+        VIEW PROPERTIES
+      </button>
+    </Link>
 
-            <button className="border border-[#11b5ae] text-[#11b5ae] hover:bg-[#11b5ae] hover:text-white px-10 py-5 rounded-[30px] text-lg font-semibold transition">
-              CONTACT US
-            </button>
+    <Link href="/contact">
+      <button className="border border-[#11b5ae] text-[#11b5ae] hover:bg-[#11b5ae] hover:text-white px-10 py-5 rounded-[30px] text-lg font-semibold transition min-w-[220px]">
+        CONTACT US
+      </button>
+    </Link>
 
-          </div>
-        </div>
+    <a
+      href="https://wa.me/971501234567"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button className="bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-[30px] text-lg font-semibold transition shadow-sm min-w-[220px] flex items-center justify-center gap-3">
+        <MessageCircle className="w-6 h-6" />
+        WHATSAPP
+      </button>
+    </a>
+
+  </div>
+
+</div>
+
+        
 
         {/* RIGHT IMAGE */}
-        <div className="relative min-h-[600px]">
-          <Image
-            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"
-            alt="Luxury Apartment"
-            fill
-            className="object-cover"
-          />
-        </div>
-
+        
       </section>
 
       {/* ACCOMMODATION TYPES */}

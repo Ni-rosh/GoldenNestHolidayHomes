@@ -11,7 +11,56 @@ import {
   Send,
 } from "lucide-react";
 
+import { useState } from "react";
+
 export default function ContactPage() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    property: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+
+  const handleSubmit = (
+    e: React.FormEvent
+  ) => {
+
+    e.preventDefault();
+
+    const subject = encodeURIComponent(
+      "New Inquiry - Golden Nest Holiday Homes"
+    );
+
+    const body = encodeURIComponent(`
+Full Name: ${formData.name}
+
+Email: ${formData.email}
+
+Phone: ${formData.phone}
+
+Interested Property: ${formData.property}
+
+Message:
+${formData.message}
+    `);
+
+    window.location.href =
+      `mailto:infogoldennestholidayhomes@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="bg-[#f8fbfb] min-h-screen">
       <Header />
@@ -169,9 +218,7 @@ export default function ContactPage() {
 
             {/* FORM */}
             <form
-              action="mailto:infogoldennestholidayhomes@gmail.com"
-              method="POST"
-              encType="text/plain"
+              onSubmit={handleSubmit}
               className="space-y-5"
             >
 
@@ -185,9 +232,11 @@ export default function ContactPage() {
 
                   <input
                     type="text"
-                    name="Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your full name"
-                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae]"
+                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
                   />
                 </div>
 
@@ -198,9 +247,11 @@ export default function ContactPage() {
 
                   <input
                     type="email"
-                    name="Email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="you@example.com"
-                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae]"
+                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
                   />
                 </div>
 
@@ -214,9 +265,11 @@ export default function ContactPage() {
 
                 <input
                   type="text"
-                  name="Phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="+971..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae]"
+                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
                 />
               </div>
 
@@ -228,9 +281,11 @@ export default function ContactPage() {
 
                 <input
                   type="text"
-                  name="Property"
+                  name="property"
+                  value={formData.property}
+                  onChange={handleChange}
                   placeholder="Family room, studio, bedspace..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae]"
+                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
                 />
               </div>
 
@@ -242,9 +297,11 @@ export default function ContactPage() {
 
                 <textarea
                   rows={5}
-                  name="Message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us about your requirement..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae]"
+                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
                 ></textarea>
               </div>
 

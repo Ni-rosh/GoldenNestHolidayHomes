@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();
@@ -13,56 +14,60 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-white border-b z-50">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between py-5 px-6 lg:px-10">
+    <header className="sticky top-0 bg-white z-50 shadow-sm border-b border-gray-100 overflow-hidden">
 
-        {/* LEFT SIDE */}
-        <Link href="/" className="flex items-center gap-4">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between h-[82px] px-8">
 
-          <div className="w-12 h-12 rounded-full border border-[#12b7b0] flex items-center justify-center text-[#12b7b0] font-bold text-lg">
-            GN
-          </div>
+        {/* LOGO */}
+{/* LOGO */}
+{/* LOGO */}
+<Link href="/" className="flex items-center gap-4 min-w-fit">
 
-          <div>
-            <h1 className="text-xl font-bold text-black leading-none">
-              Golden Nest
-            </h1>
+  {/* ICON */}
+  <Image
+    src="/logo.png"
+    alt="Golden Nest"
+    width={58}
+    height={58}
+    priority
+    className="object-contain"
+  />
 
-            <p className="text-sm text-gray-500 mt-1">
-              Holiday Homes
-            </p>
-          </div>
+  {/* BRAND TEXT */}
+  <div className="flex flex-col justify-center">
 
-        </Link>
+    <h1
+  className="text-[20px] tracking-[4px] text-[#0b3b2e] uppercase leading-none"
+  style={{ fontFamily: "serif" }}
+>
+  Golden Nest
+</h1>
 
+<p
+  className="text-[10px] text-[#c8a55a] uppercase mt-[6px] leading-none text-center tracking-[4px]"
+  style={{ fontFamily: "serif" }}
+>
+  Holiday Homes
+</p>
+</div>
+
+</Link>
         {/* NAVIGATION */}
-        <nav className="hidden md:flex items-center gap-12 text-[17px] font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-[17px] font-medium">
 
-          <Link
-            href="/"
-            className={navLink("/")}
-          >
+          <Link href="/" className={navLink("/")}>
             Home
           </Link>
 
-          <Link
-            href="/properties"
-            className={navLink("/properties")}
-          >
+          <Link href="/properties" className={navLink("/properties")}>
             Properties
           </Link>
 
-          <Link
-            href="/amenities"
-            className={navLink("/amenities")}
-          >
+          <Link href="/amenities" className={navLink("/amenities")}>
             Amenities
           </Link>
 
-          <Link
-            href="/contact"
-            className={navLink("/contact")}
-          >
+          <Link href="/contact" className={navLink("/contact")}>
             Contact Us
           </Link>
 
@@ -71,14 +76,16 @@ const Header = () => {
         {/* BUTTON */}
         <Link href="/properties">
 
-          <button className="bg-[#12b7b0] hover:bg-[#0ea5a0] text-white px-8 py-3 rounded-full font-semibold transition">
+          <button className="bg-[#12b7b0] hover:bg-[#0ea5a0] text-white px-8 py-3 rounded-full font-semibold transition whitespace-nowrap">
 
             VIEW PROPERTIES
 
           </button>
 
         </Link>
+
       </div>
+
     </header>
   );
 };
