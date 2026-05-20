@@ -9,6 +9,13 @@ import {
   Wifi,
 } from "lucide-react";
 
+// Generate static params for all property IDs
+export async function generateStaticParams() {
+  return properties.map((property) => ({
+    id: property.id,
+  }));
+}
+
 export default async function PropertyDetailsPage({
   params,
 }: {
