@@ -66,18 +66,18 @@ ${formData.message}
       <Header />
 
       {/* HERO */}
-      <section className="bg-[#eef8f7] py-10 border-b border-[#e4f0ef]">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="bg-[#eef8f7] py-8 md:py-12 border-b border-[#e4f0ef]">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 text-center">
 
-          <p className="text-[#11b5ae] font-semibold uppercase tracking-[3px] text-xs mb-3">
+          <p className="text-[#11b5ae] font-semibold uppercase tracking-[2px] md:tracking-[3px] text-xs mb-2 md:mb-3">
             CONTACT GOLDEN NEST
           </p>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0d0d3f] leading-tight">
+          <h1 className="text-2xl md:text-4xl font-bold text-[#0d0d3f] leading-tight">
             Get In Touch With Us
           </h1>
 
-          <p className="text-[#5b6475] text-sm md:text-base mt-4 leading-7 max-w-2xl mx-auto">
+          <p className="text-[#5b6475] text-sm md:text-base mt-3 md:mt-4 leading-7 max-w-2xl mx-auto px-2">
             Looking for premium holiday homes, family rooms, studios,
             or bedspaces in Dubai & Sharjah? Our team is here to help you.
           </p>
@@ -86,32 +86,32 @@ ${formData.message}
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
 
-        <div className="grid lg:grid-cols-2 gap-7 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-7 items-start">
 
           {/* LEFT SIDE */}
-          <div className="space-y-5">
+          <div className="space-y-4 md:space-y-5">
 
             {/* EMAIL */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#edf3f3]">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 md:gap-4">
 
-                <div className="w-12 h-12 rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
-                  <Mail className="w-6 h-6 text-[#11b5ae]" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
+                  <Mail className="w-5 md:w-6 h-5 md:h-6 text-[#11b5ae]" />
                 </div>
 
-                <div>
-                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+                <div className="min-w-0">
+                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2">
                     EMAIL
                   </p>
 
-                  <h3 className="text-xl font-bold text-[#0d0d3f] break-words">
+                  <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f] break-words">
                     infogoldennestholidayhomes@gmail.com
                   </h3>
 
-                  <p className="text-[#5b6475] mt-3 text-sm leading-7">
+                  <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm leading-6 md:leading-7">
                     Reach out for bookings, property inquiries, and accommodation availability.
                   </p>
                 </div>
@@ -120,56 +120,55 @@ ${formData.message}
             </div>
 
             {/* PHONE */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#edf3f3]">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 md:gap-4">
 
-                <div className="w-12 h-12 rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-[#11b5ae]" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
+                  <Phone className="w-5 md:w-6 h-5 md:h-6 text-[#11b5ae]" />
                 </div>
 
                 <div>
-                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2">
                     PHONE
                   </p>
 
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-[#0d0d3f]">
+                  <div className="space-y-1 md:space-y-2">
+                    <h3 className="text-base md:text-lg font-bold text-[#0d0d3f]">
                       +971 58 119 2956
                     </h3>
 
-                    <h3 className="text-lg font-bold text-[#0d0d3f]">
+                    <h3 className="text-base md:text-lg font-bold text-[#0d0d3f]">
                       +971 50 182 9564
                     </h3>
                   </div>
 
-                  <p className="text-[#5b6475] mt-3 text-sm">
+                  <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm">
                     Available daily for quick support and bookings.
                   </p>
                 </div>
-
               </div>
             </div>
 
             {/* WHATSAPP */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#edf3f3]">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 md:gap-4">
 
-                <div className="w-12 h-12 rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-6 h-6 text-[#11b5ae]" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-5 md:w-6 h-5 md:h-6 text-[#11b5ae]" />
                 </div>
 
                 <div>
-                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2">
                     WHATSAPP
                   </p>
 
-                  <h3 className="text-xl font-bold text-[#0d0d3f]">
+                  <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f]">
                     Chat on WhatsApp
                   </h3>
 
-                  <p className="text-[#5b6475] mt-3 text-sm leading-7">
+                  <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm leading-6 md:leading-7">
                     Usually the fastest way to reach our team for real-time availability.
                   </p>
                 </div>
@@ -178,24 +177,24 @@ ${formData.message}
             </div>
 
             {/* OFFICE */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#edf3f3]">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 md:gap-4">
 
-                <div className="w-12 h-12 rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6 text-[#11b5ae]" />
+                <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 md:w-6 h-5 md:h-6 text-[#11b5ae]" />
                 </div>
 
                 <div>
-                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+                  <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2">
                     OFFICE
                   </p>
 
-                  <h3 className="text-xl font-bold text-[#0d0d3f]">
+                  <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f]">
                     Golden Nest Holiday Homes
                   </h3>
 
-                  <p className="text-[#5b6475] mt-3 text-sm leading-7">
+                  <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm leading-6 md:leading-7">
                     Office No. 372-ST, Port Saeed, Dubai, UAE
                   </p>
                 </div>
@@ -206,27 +205,27 @@ ${formData.message}
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="bg-white rounded-3xl p-7 shadow-sm border border-[#edf3f3]">
+          <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-7 shadow-sm border border-[#edf3f3]">
 
-            <h2 className="text-3xl font-bold text-[#0d0d3f] mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0d0d3f] mb-2 md:mb-3">
               Send us a message
             </h2>
 
-            <p className="text-[#5b6475] text-sm leading-7 mb-8">
+            <p className="text-[#5b6475] text-xs md:text-sm leading-6 md:leading-7 mb-6 md:mb-8">
               Fill out the form below and your email app will open automatically.
             </p>
 
             {/* FORM */}
             <form
               onSubmit={handleSubmit}
-              className="space-y-5"
+              className="space-y-4 md:space-y-5"
             >
 
               {/* NAME + EMAIL */}
-              <div className="grid md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
 
                 <div>
-                  <label className="block text-[#0d0d3f] font-medium mb-2 text-sm">
+                  <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                     Full Name
                   </label>
 
@@ -236,12 +235,12 @@ ${formData.message}
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your full name"
-                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
+                    className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#0d0d3f] font-medium mb-2 text-sm">
+                  <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                     Email
                   </label>
 
@@ -251,7 +250,7 @@ ${formData.message}
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
-                    className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
+                    className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                   />
                 </div>
 
@@ -259,7 +258,7 @@ ${formData.message}
 
               {/* PHONE */}
               <div>
-                <label className="block text-[#0d0d3f] font-medium mb-2 text-sm">
+                <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                   Phone Number
                 </label>
 
@@ -269,13 +268,13 @@ ${formData.message}
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+971..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
+                  className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
 
               {/* PROPERTY */}
               <div>
-                <label className="block text-[#0d0d3f] font-medium mb-2 text-sm">
+                <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                   Interested Property
                 </label>
 
@@ -285,32 +284,32 @@ ${formData.message}
                   value={formData.property}
                   onChange={handleChange}
                   placeholder="Family room, studio, bedspace..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
+                  className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
 
               {/* MESSAGE */}
               <div>
-                <label className="block text-[#0d0d3f] font-medium mb-2 text-sm">
+                <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                   Message
                 </label>
 
                 <textarea
-                  rows={5}
+                  rows={4}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your requirement..."
-                  className="w-full border border-[#dfeaea] rounded-2xl px-4 py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400"
+                  className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base resize-none"
                 ></textarea>
               </div>
 
               {/* BUTTONS */}
-              <div className="flex flex-wrap gap-4 pt-5">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 pt-3 md:pt-5">
 
                 <button
                   type="submit"
-                  className="bg-[#11b5ae] hover:bg-[#0e9c96] text-white px-7 py-3 rounded-2xl font-semibold flex items-center gap-3 transition"
+                  className="bg-[#11b5ae] hover:bg-[#0e9c96] text-white px-5 md:px-7 py-2.5 md:py-3 rounded-xl md:rounded-2xl font-semibold flex items-center justify-center gap-2 transition text-sm md:text-base"
                 >
                   Send Message
                   <Send className="w-4 h-4" />
@@ -319,7 +318,7 @@ ${formData.message}
                 <a
                   href="https://wa.me/971581192956"
                   target="_blank"
-                  className="bg-[#10d463] hover:bg-[#0fc45c] text-white px-7 py-3 rounded-2xl font-semibold flex items-center gap-3 transition"
+                  className="bg-[#10d463] hover:bg-[#0fc45c] text-white px-5 md:px-7 py-2.5 md:py-3 rounded-xl md:rounded-2xl font-semibold flex items-center justify-center gap-2 transition text-sm md:text-base"
                 >
                   WhatsApp Us
                   <MessageCircle className="w-4 h-4" />
