@@ -56,9 +56,8 @@ const Footer = () => {
 
             {/* DESCRIPTION */}
             <p className="text-gray-300 text-[15px] md:text-[17px] leading-7 md:leading-9 max-w-md">
-              Premium holiday homes and co-living spaces in
-              Dubai and Sharjah. Experience the perfect blend
-              of affordability, comfort, and modern luxury living.
+              Premium Holiday Homes and Co-living Spaces in Dubai and Sharjah. 
+              Experience the Perfect Blend of Affordability, Comfort, and Modern Luxury Living.
             </p>
 
           </div>
@@ -99,7 +98,12 @@ const Footer = () => {
               >
                 Contact Us
               </a>
-
+              <a
+                href="/careers"
+                className="hover:text-[#12b7b0] hover:translate-x-1 transition duration-300"
+              >
+                Careers
+              </a>
             </div>
 
           </div>
@@ -144,7 +148,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-[#12b7b0] mt-1 shrink-0" />
 
                 <p className="text-[15px] md:text-[17px] break-all leading-6 md:leading-8">
-                  infogoldennestholidayhomes@gmail.com
+                  info@goldennestholidayhomes.com
                 </p>
 
               </div>
@@ -164,14 +168,16 @@ const Footer = () => {
               Our Locations:
             </p>
 
-            {[
-              "Al Nahda 1, Dubai",
-              "Al Nahda 2, Dubai",
-              "Al Qusais 1, Dubai",
-              "Bur Dubai",
-              "Al Barsha 1",
-              "Karama",
-              "Sharjah",
+            {[               
+    "Al Nahda 1",
+    "Al Nahda 2",
+    "Al Qusais 1",
+    "Al Qusais 2",
+    "Al Mamzer",
+    "Al Karama",
+    "Al Ghubaiba",
+    "Bur Dubai",
+    "Al Nahda Sharjah",
             ].map((location) => (
 
               <span

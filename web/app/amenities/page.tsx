@@ -28,7 +28,7 @@ export default function AmenitiesPage() {
     },
     {
       title: "Daily Cleaning",
-      desc: "Housekeeping provided 4 days a week for all shared spaces.",
+      desc: "Housekeeping provided 3 times a week for all shared spaces.",
       icon: Sparkles,
     },
     {
@@ -205,7 +205,7 @@ export default function AmenitiesPage() {
             </h2>
 
             <p className="text-[#5b6475] mt-4 text-lg">
-              We maintain a secure and respectful co-living environment for all residents.
+              We Maintain a Secure and Respectful Co-Living Environment For All Residents.
             </p>
           </div>
 

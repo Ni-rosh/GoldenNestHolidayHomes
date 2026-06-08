@@ -9,6 +9,7 @@ import {
   MessageCircle,
   MapPin,
   Send,
+  Clock3,
 } from "lucide-react";
 
 import { useState } from "react";
@@ -58,7 +59,7 @@ ${formData.message}
     `);
 
     window.location.href =
-      `mailto:infogoldennestholidayhomes@gmail.com?subject=${subject}&body=${body}`;
+      `mailto:info@goldennestholidayhomes.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -78,8 +79,7 @@ ${formData.message}
           </h1>
 
           <p className="text-[#5b6475] text-sm md:text-base mt-3 md:mt-4 leading-7 max-w-2xl mx-auto px-2">
-            Looking for premium holiday homes, family rooms, studios,
-            or bedspaces in Dubai & Sharjah? Our team is here to help you.
+            Looking for Premium Holiday Homes, amily rooms, studios, or bedspaces in Dubai & Sharjah? Our team is here to help you.
           </p>
 
         </div>
@@ -108,7 +108,7 @@ ${formData.message}
                   </p>
 
                   <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f] break-words">
-                    infogoldennestholidayhomes@gmail.com
+                    info@goldennestholidayhomes.com
                   </h3>
 
                   <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm leading-6 md:leading-7">
@@ -201,7 +201,34 @@ ${formData.message}
 
               </div>
             </div>
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
+              <div className="flex items-start gap-3 md:gap-4">    
+<div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">
+                  <Clock3 className="w-5 md:w-6 h-5 md:h-6 text-[#11b5ae]" />
+                </div>
+
+    <div>
+      <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[2px] md:tracking-[3px] mb-1 md:mb-2">
+        Working Hours
+      </p>
+
+      <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f]">
+        9:00 AM - 6:00 PM
+      </h3>
+
+      <p className="text-[#5b6475] mt-2 md:mt-3 text-xs md:text-sm leading-6 md:leading-7">
+        Monday - Friday      
+
+      <br />
+        Saturday: 9:00 AM - 2:00 PM
+      <br />
+        Sunday: Closed
+      </p>
+    </div>
+
+  </div>
+</div>
           </div>
 
           {/* RIGHT SIDE */}
@@ -273,20 +300,27 @@ ${formData.message}
               </div>
 
               {/* PROPERTY */}
-              <div>
-                <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
-                  Interested Property
+             <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
+                  Interested Property 
                 </label>
+<select
+  name="property"
+  required
+  className="w-full rounded-2xl border border-gray-200 px-5 py-4 bg-white text-gray-700"
+>
+  <option value="">Select a Property</option>
 
-                <input
-                  type="text"
-                  name="property"
-                  value={formData.property}
-                  onChange={handleChange}
-                  placeholder="Family room, studio, bedspace..."
-                  className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
-                />
-              </div>
+  <option value="Al Nahda 1">Al Nahda 1</option>
+  <option value="Al Nahda 2">Al Nahda 2</option>
+  <option value="Al Nahda 2 Family Room">Al Nahda 2 Family Room</option>
+  <option value="Al Qusais 1">Al Qusais 1</option>
+  <option value="Al Qusais 2">Al Qusais 2</option>
+  <option value="Al Mamzar">Al Mamzar</option>
+  <option value="Al Karama">Al Karama</option>
+  <option value="Al Ghubaiba">Al Ghubaiba</option>
+  <option value="Bur Dubai">Bur Dubai</option>
+  <option value="Sharjah Female Accommodation">Sharjah Female Accommodation</option>
+</select>
 
               {/* MESSAGE */}
               <div>

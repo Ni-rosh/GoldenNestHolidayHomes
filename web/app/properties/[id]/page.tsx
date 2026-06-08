@@ -1,32 +1,55 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { properties } from "@/data/properties";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 import {
   MapPin,
   Phone,
   MessageCircle,
   Wifi,
+  ShieldCheck,
+  Refrigerator,
+  Wind,
+  Microwave,
+  WashingMachine,
+  Wrench,
+  Bed,
+  Home,
+  Bus,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
-// Generate static params for all property IDs
-export async function generateStaticParams() {
-  return properties.map((property) => ({
-    id: property.id,
-  }));
-}
+export default function PropertyDetailsPage() {
+  const params = useParams();
+  const id = params.id as string;
 
-export default async function PropertyDetailsPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+  const [property, setProperty] = useState<any>(null);
+  const [showGallery, setShowGallery] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const { id } = await params;
+  useEffect(() => {
+    const found = properties.find((item) => item.id === id);
+    setProperty(found);
+  }, [id]);
 
-  const property = properties.find(
-    (item) => item.id === id
-  );
+  useEffect(() => {
+    // Prevent body scroll when gallery is open
+    if (showGallery) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showGallery]);
 
   if (!property) {
     return (
@@ -35,6 +58,20 @@ export default async function PropertyDetailsPage({
       </div>
     );
   }
+
+  const nextImage = () => {
+    setCurrentImageIndex(
+      (currentImageIndex + 1) % property.images.length
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex(
+      (currentImageIndex - 1 + property.images.length) %
+        property.images.length
+    );
+  };
+
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
 
@@ -46,10 +83,10 @@ export default async function PropertyDetailsPage({
 
         {/* TITLE */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#0d0d3f] mb-6">
-          {property.title}
-        </h1>
+  {property.displayTitle ?? property.title}
+</h1>
 
-        {/* TOP SECTION */}
+        {/* TOP SECTION - LEFT INFO + RIGHT IMAGES GRID */}
         <div className="grid lg:grid-cols-[340px_1fr] gap-5 items-start">
 
           {/* LEFT CARD */}
@@ -120,21 +157,119 @@ export default async function PropertyDetailsPage({
 
           </div>
 
-          {/* RIGHT IMAGES */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* RIGHT IMAGES - MASONRY GRID */}
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 auto-rows-max">
 
-            {property.images.map((image, index) => (
-  <img
-    key={index}
-    src={image}
-    alt={property.title}
-    className="rounded-2xl h-[250px] w-full object-cover"
-  />
-))}
+            {property.images.map((image: string, index: number) => {
+              // First image takes 2x2 space
+              if (index === 0) {
+                return (
+                  <div
+                    key={index}
+                    className="col-span-2 row-span-2 relative rounded-2xl h-[300px] w-full overflow-hidden cursor-pointer hover:opacity-80 transition group"
+                    onClick={() => {
+                      setCurrentImageIndex(index);
+                      setShowGallery(true);
+                    }}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${property.title} - Image ${index + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-300"
+                    />
+                  </div>
+                );
+              }
+              
+              // Rest are normal size
+              return (
+                <div
+                  key={index}
+                  className="relative rounded-lg h-[140px] w-full overflow-hidden cursor-pointer hover:opacity-80 transition group"
+                  onClick={() => {
+                    setCurrentImageIndex(index);
+                    setShowGallery(true);
+                  }}
+                >
+                  <Image
+                    src={image}
+                    alt={`${property.title} - Image ${index + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition duration-300"
+                  />
+                </div>
+              );
+            })}
 
           </div>
 
         </div>
+
+        {/* GALLERY MODAL */}
+        {showGallery && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center p-4">
+            <button
+              onClick={() => setShowGallery(false)}
+              className="absolute top-4 right-4 text-white hover:bg-white hover:bg-opacity-10 p-2 rounded-full transition z-10"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* MAIN IMAGE */}
+            <div className="relative w-full h-full max-w-4xl flex items-center justify-center">
+              <Image
+                src={property.images[currentImageIndex]}
+                alt={`Gallery - Image ${currentImageIndex + 1}`}
+                fill
+                className="object-contain"
+                priority
+              />
+
+              {/* NAVIGATION BUTTONS - MORE VISIBLE */}
+              <button
+                onClick={prevImage}
+                className="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-black p-3 md:p-4 rounded-full transition shadow-xl z-20"
+              >
+                <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+              </button>
+
+              <button
+                onClick={nextImage}
+                className="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 text-black p-3 md:p-4 rounded-full transition shadow-xl z-20"
+              >
+                <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+              </button>
+
+              {/* IMAGE COUNTER */}
+              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                {currentImageIndex + 1} / {property.images.length}
+              </div>
+
+              {/* THUMBNAIL STRIP */}
+              <div className="absolute bottom-2 left-0 right-0 flex gap-2 justify-center overflow-x-auto px-4 pb-2 max-h-20">
+                {property.images.map((image: string, index: number) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition ${
+                      currentImageIndex === index
+                        ? "border-white"
+                        : "border-gray-600"
+                    }`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ABOUT */}
         <div className="bg-white rounded-2xl p-6 shadow-sm mt-6">
@@ -161,32 +296,110 @@ export default async function PropertyDetailsPage({
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-            {[
-              "High Speed WiFi - 1000 Mbps",
-              "Daily Cleaning - 4 Days/Week",
-              "Water & Electricity Included",
-              "24/7 CCTV Security",
-              "Fully Furnished Rooms",
-              "Personal Cupboards",
-              "Kitchen Appliances",
-              "Automatic Washing Machine",
-              "Ironing Table",
-              "Drinking Water",
-              "Cooking Gas Included",
-              "24/7 Maintenance Support",
-            ].map((item) => (
-              <div
-                key={item}
-                className="border border-gray-200 rounded-xl p-4 flex items-center gap-3"
-              >
-                <Wifi className="w-4 h-4 text-[#11b5ae]" />
+ {[
+  {
+    name: "500-700 Mbps Wi-Fi",
+    icon: Wifi,
+  },
+  {
+    name: "Cleaning Service",
+    icon: Home,
+  },
+  {
+    name: "Central AC",
+    icon: Wind,
+  },
+  {
+    name: "Metro Access",
+    icon: MapPin,
+  },
+  {
+    name: "Bus Stop Nearby",
+    icon: Bus,
+  },
+  {
+    name: "Washing Machine",
+    icon: WashingMachine,
+  },
+  {
+    name: "Refrigerator",
+    icon: Refrigerator,
+  },
+  {
+    name: "Gas Supply",
+    icon: Home,
+  },
+  {
+    name: "Microwave Oven",
+    icon: Microwave,
+  },
+  {
+    name: "CCTV Surveillance",
+    icon: ShieldCheck,
+  },
+  {
+    name: "24/7 On Call Support",
+    icon: Phone,
+  },
+  {
+    name: "Pest Control",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Dry Stand",
+    icon: Home,
+  },
+  {
+    name: "Shared Washroom",
+    icon: Home,
+  },
+  {
+    name: "Balcony",
+    icon: Home,
+  },
+  {
+    name: "Single Bed",
+    icon: Bed,
+  },
+  {
+    name: "Shoe Rack",
+    icon: Home,
+  },
+  {
+    name: "Regular Maintenance",
+    icon: Wrench,
+  },
+  {
+    name: "Shared Room",
+    icon: Home,
+  },
+].map((item) => {
+  const Icon = item.icon;
 
-                <span className="text-sm text-gray-700 font-medium leading-5">
-                  {item}
-                </span>
+  return (
+    <div
+      key={item.name}
+      className="
+border border-gray-200
+rounded-xl
+p-4
+flex items-center gap-3
+transition-all duration-300
+hover:border-[#11b5ae]
+hover:bg-[#f0fdfc]
+hover:shadow-md
+hover:-translate-y-1
+cursor-pointer
+"
+    >
+      <Icon className="w-5 h-5 text-[#11b5ae]" />
 
-              </div>
-            ))}
+      <span className="text-sm text-gray-700 font-medium leading-5">
+        {item.name}
+      </span>
+    </div>
+  );
+})}
 
           </div>
 
@@ -198,13 +411,26 @@ export default async function PropertyDetailsPage({
   <h2 className="text-2xl font-bold text-[#0d0d3f] mb-5">
     What’s Nearby
   </h2>
+  <p className="text-gray-600 mb-8 max-w-3xl">
+  Explore nearby attractions, amenities, and services within walking distance or a short commute.
+</p>
 
   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-    {property.nearby.map((place) => (
+    {property.nearby.map((place: string) => (
       <div
         key={place}
-        className="border border-gray-200 rounded-xl p-4 flex items-center gap-3"
+        className="
+border border-gray-200
+rounded-xl
+p-4
+transition-all duration-300
+hover:border-[#11b5ae]
+hover:bg-[#f0fdfc]
+hover:shadow-md
+hover:-translate-y-1
+cursor-pointer
+"
       >
         <MapPin className="w-4 h-4 text-[#11b5ae]" />
 
@@ -309,7 +535,7 @@ export default async function PropertyDetailsPage({
 
                 <ul className="list-disc pl-5 space-y-1">
                   <li>Keep rooms and common areas clean.</li>
-                  <li>Dispose garbage properly.</li>
+                  <li>Dispose Garbage Properly.</li>
                   <li>Do not leave dirty dishes unattended.</li>
                   <li>Use assigned cupboards only.</li>
                   <li>Mattress damage incurs AED 250 fine.</li>
@@ -358,8 +584,6 @@ export default async function PropertyDetailsPage({
 
           <div className="flex flex-wrap justify-center gap-8 text-xl font-bold text-[#0d0d3f] mt-10">
   <span>+971 58 119 2956</span>
-
-  <span>+971 50 196 4284</span>
 
   <span>+971 50 182 9564</span>
 </div>

@@ -76,7 +76,9 @@ const Header = () => {
           <Link href="/contact" className={navLink("/contact")}>
             Contact Us
           </Link>
-
+          <Link href="/careers" className={navLink("/careers")}>
+            Careers
+          </Link>
         </nav>
 
         {/* BUTTON - DESKTOP */}
@@ -141,7 +143,13 @@ const Header = () => {
             >
               Contact Us
             </Link>
-
+<Link
+  href="/careers"
+  className={`py-2 text-[16px] font-medium ${navLink("/careers")}`}
+  onClick={() => setIsMenuOpen(false)}
+>
+  Careers
+</Link>
             <Link href="/properties" onClick={() => setIsMenuOpen(false)}>
               <button className="w-full bg-[#12b7b0] hover:bg-[#0ea5a0] text-white px-6 py-3 rounded-full font-semibold transition mt-2">
                 VIEW PROPERTIES
