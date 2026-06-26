@@ -138,6 +138,7 @@ const Footer = () => {
                 <div className="text-[15px] md:text-[17px] leading-6 md:leading-8">
                   <p>+971 58 119 2956</p>
                   <p>+971 50 182 9564</p>
+                  <p>+971 52 3042 485</p>
                 </div>
 
               </div>

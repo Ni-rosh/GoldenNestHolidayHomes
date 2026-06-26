@@ -79,7 +79,7 @@ ${formData.message}
           </h1>
 
           <p className="text-[#5b6475] text-sm md:text-base mt-3 md:mt-4 leading-7 max-w-2xl mx-auto px-2">
-            Looking for Premium Holiday Homes, amily rooms, studios, or bedspaces in Dubai & Sharjah? Our team is here to help you.
+            Looking for Premium Holiday Homes, Family rooms, Studios, or Bedspaces in Dubai & Sharjah? Our team is here to help you.
           </p>
 
         </div>
@@ -140,6 +140,10 @@ ${formData.message}
 
                     <h3 className="text-base md:text-lg font-bold text-[#0d0d3f]">
                       +971 50 182 9564
+                    </h3>
+
+                    <h3 className="text-base md:text-lg font-bold text-[#0d0d3f]">
+                      +971 52 3042 485
                     </h3>
                   </div>
 

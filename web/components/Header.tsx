@@ -49,7 +49,7 @@ const Header = () => {
             </h1>
 
             <p
-              className="text-[8px] md:text-[10px] text-[#c8a55a] uppercase mt-[4px] md:mt-[6px] leading-none text-center tracking-[2px] md:tracking-[4px]"
+              className="text-[8px] md:text-[13px] text-[#c8a55a] uppercase mt-[4px] md:mt-[6px] leading-none text-center tracking-[2px] md:tracking-[4px] font-bold"
               style={{ fontFamily: "serif" }}
             >
               Holiday Homes
@@ -60,6 +60,7 @@ const Header = () => {
 
         {/* NAVIGATION - DESKTOP */}
         <nav className="hidden md:flex items-center gap-8 text-[17px] font-medium">
+
 
           <Link href="/" className={navLink("/")}>
             Home

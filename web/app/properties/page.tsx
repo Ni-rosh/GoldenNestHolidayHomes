@@ -148,7 +148,7 @@ filteredProperties = filteredProperties.sort(
         <div className="flex justify-center gap-6 mt-6">
           <div className="bg-white px-8 py-5 rounded-2xl shadow-sm">
             <h2 className="text-3xl font-black text-[#11b5ae]">
-              7
+              9
             </h2>
             <p className="text-gray-500 text-sm">
               Locations

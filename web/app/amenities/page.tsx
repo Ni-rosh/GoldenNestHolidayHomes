@@ -23,7 +23,7 @@ export default function AmenitiesPage() {
   const amenities = [
     {
       title: "High-Speed WiFi",
-      desc: "Up to 1000 Mbps internet for seamless work and streaming.",
+      desc: "Up to 500 - 700 Mbps internet for seamless work and streaming.",
       icon: Wifi,
     },
     {

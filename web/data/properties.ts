@@ -42,16 +42,16 @@ export const properties: Property[] = [
     ],
 
     nearby: [
-      "Al Qusais Metro Station",
-      "DAFZA Metro Station",
-      "Lulu Hypermarket",
-      "Al Bustan Centre",
-      "Budget-friendly cafeterias",
-      "Al Qusais Pond Park",
-      "Dubai International Bowling Centre",
-      "Dubai Airport Freezone (DAFZA)",
-      "Dubai International Airport (DXB)",
-    ],
+  "Restaurants - 10 M",
+  "Bus Stop - 10 M",
+  "Local Grocery - 10 M",
+  "Salon - 10 M",
+  "Life Pharmacy - 50 M",
+  "Bank - 50 M",
+  "Mosque - 100 M",
+  "Aster Hospital - 200 M",
+  "Dubai Residential Oasis - 50 M",
+],
   },
 
   {
@@ -84,14 +84,17 @@ export const properties: Property[] = [
     ],
 
     nearby: [
-      "Al Nahda Metro Station",
-      "Stadium Metro Station",
-      "Al Nahda Pond Park",
-      "NMC Speciality Hospital",
-      "Zulekha Hospital",
-      "Sahara Centre",
-      "Madina Mall",
-    ],
+  "Stadium Metro Station - 700 M",
+  "Restaurants - 10 M",
+  "Bus Stop - 10 M",
+  "NMC Speciality Hospital - 100 M",
+  "Nesto Hypermarket - 200 M",
+  "Sahara Centre Mall - 300 M",
+  "Famila Mart - 50 M",
+  "Union Coop Al Nahda - 100 M",
+  "Salon - 10 M",
+  "Local Grocery - 10 M",
+],
   },
 
   {
@@ -120,14 +123,18 @@ export const properties: Property[] = [
     ],
 
     nearby: [
-      "Al Nahda Metro Station",
-      "Stadium Metro Station",
-      "Al Nahda Pond Park",
-      "NMC Speciality Hospital",
-      "Zulekha Hospital",
-      "Sahara Centre",
-      "Madina Mall",
-    ],
+  "Stadium Metro Station - 700 M",
+  "Restaurants - 10 M",
+  "Bus Stop - 10 M",
+  "NMC Speciality Hospital - 100 M",
+  "Nesto Hypermarket - 200 M",
+  "Sahara Centre Mall - 300 M",
+  "Famila Mart - 50 M",
+  "Union Coop Al Nahda - 100 M",
+  "Salon - 10 M",
+  "Local Grocery - 10 M",
+  "Mosque - 100 M"
+],
   },
 
   {
@@ -417,15 +424,15 @@ export const properties: Property[] = [
     map: "https://share.google/MkZ5n28grIEQZTVJo",
 
     images: [
-      "/properties/Al-Karama/Photo 1.jpg",
-      "/properties/Al-Karama/Photo 2.jpg",
-      "/properties/Al-Karama/Photo 3.jpg",
-      "/properties/Al-Karama/Photo 4.jpg",
-      "/properties/Al-Karama/Photo 5.jpg",
-      "/properties/Al-Karama/Photo 6.jpg",
-      "/properties/Al-Karama/Photo 7.jpg",
-      "/properties/Al-Karama/Photo 8.jpg",
-      "/properties/Al-Karama/Photo 9.jpg",      
+      "/properties/Al Karama/Photo 1.jpg",
+      "/properties/Al Karama/Photo 2.jpg",
+      "/properties/Al Karama/Photo 3.jpg",
+      "/properties/Al Karama/Photo 4.jpg",
+      "/properties/Al Karama/Photo 5.jpg",
+      "/properties/Al Karama/Photo 6.jpg",
+      "/properties/Al Karama/Photo 7.jpg",
+      "/properties/Al Karama/Photo 8.jpg",
+      "/properties/Al Karama/Photo 9.jpg",      
     ],
 
     nearby: [
