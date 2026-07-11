@@ -11,7 +11,7 @@ import {
   Send,
   Clock3,
 } from "lucide-react";
-
+import { FaInstagram } from "react-icons/fa";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -179,7 +179,61 @@ ${formData.message}
 
               </div>
             </div>
+{/* INSTAGRAM */}
 
+<div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
+
+  <div className="flex items-start gap-4">
+
+    <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#fff1f5] flex items-center justify-center shrink-0">
+
+      <FaInstagram className="w-5 md:w-6 h-5 md:h-6 text-[#E1306C]" />
+
+    </div>
+
+    <div>
+
+      <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+        INSTAGRAM
+      </p>
+
+      <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f]">
+        @goldennestholidayhomes
+      </h3>
+
+      <p className="text-[#5b6475] mt-3 text-sm leading-7">
+        Explore our latest properties, room tours, offers and updates.
+      </p>
+
+      <a
+        href="https://www.instagram.com/goldennestholidayhomes?igsh=dWNvOW9sMGJpb3J5"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+inline-flex items-center
+mt-4
+rounded-full
+bg-gradient-to-r
+from-pink-500
+via-red-500
+to-yellow-500
+px-5
+py-2.5
+font-semibold
+text-white
+hover:scale-105
+transition
+"
+      >
+        <FaInstagram className="w-5 h-5 mr-2" />
+        Follow on Instagram
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
             {/* OFFICE */}
             <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 

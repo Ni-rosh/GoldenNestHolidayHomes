@@ -6,7 +6,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-
+import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer
@@ -153,7 +153,38 @@ const Footer = () => {
                 </p>
 
               </div>
+            <div className="flex items-center gap-3 mt-8">
 
+  <span className="text-lg font-semibold text-white">
+    Follow Us
+  </span>
+
+  <a
+  href="https://www.instagram.com/goldennestholidayhomes?igsh=dWNvOW9sMGJpb3J5"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    inline-flex items-center gap-2
+    rounded-full
+    px-4 py-2
+    bg-gradient-to-r
+    from-[#f58529]
+    via-[#dd2a7b]
+    to-[#8134af]
+    text-white
+    shadow-lg
+    hover:scale-105
+    hover:shadow-xl
+    transition-all duration-300
+  "
+>
+  <FaInstagram className="text-lg" />
+  <span className="text-sm font-semibold">
+    Instagram
+  </span>
+</a>
+
+</div>
             </div>
 
           </div>

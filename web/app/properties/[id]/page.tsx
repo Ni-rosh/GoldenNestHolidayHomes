@@ -419,26 +419,29 @@ cursor-pointer
 
     {property.nearby.map((place: string) => (
       <div
-        key={place}
-        className="
-border border-gray-200
-rounded-xl
-p-4
-transition-all duration-300
-hover:border-[#11b5ae]
-hover:bg-[#f0fdfc]
-hover:shadow-md
-hover:-translate-y-1
-cursor-pointer
-"
-      >
-        <MapPin className="w-4 h-4 text-[#11b5ae]" />
+  key={place}
+  className="
+    flex items-start gap-3
+    border border-gray-200
+    rounded-xl
+    p-4
+    bg-white
+    transition-all duration-300
+    hover:border-[#11b5ae]
+    hover:bg-[#f8fffe]
+    hover:shadow-lg
+    hover:-translate-y-1
+    cursor-pointer
+  "
+>
+  <div className="mt-1 flex-shrink-0">
+    <MapPin className="w-5 h-5 text-[#11b5ae]" />
+  </div>
 
-        <span className="text-sm text-gray-700">
-          {place}
-        </span>
-
-      </div>
+  <span className="text-[15px] leading-6 text-gray-700 font-medium">
+    {place}
+  </span>
+</div>
     ))}
 
   </div>
@@ -586,6 +589,8 @@ cursor-pointer
   <span>+971 58 119 2956</span>
 
   <span>+971 50 182 9564</span>
+
+  <span>+971 52 3042 485</span>
 </div>
 
 <div className="flex flex-wrap justify-center gap-6 mt-10">
