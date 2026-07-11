@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import { CheckCircle } from "lucide-react";
 
 
 const benefits = [
@@ -64,10 +65,12 @@ const values = [
 
 export default function CareersPage() {
   const [showResumeForm, setShowResumeForm] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-const submitted =
-  typeof window !== "undefined" &&
-  new URLSearchParams(window.location.search).get("submitted") === "true";
+  const handleResumeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Don't prevent default - let the form submit naturally
+    setShowSuccessModal(true);
+  };
   return (
     <main className="bg-[#f5fbfb] text-gray-900 min-h-screen">
       <Header />
@@ -177,18 +180,13 @@ const submitted =
             We'd love to hear from you. Send us your resume and tell us why
             you'd be a great fit for Golden Nest Holiday Homes.
           </p>
-{submitted && (
-  <div className="mb-6 rounded-lg border border-green-300 bg-green-100 p-4 text-green-700">
-    Thank you! Your application has been submitted successfully.
-  </div>
-)}
 
           <button
-  onClick={() => setShowResumeForm(true)}
-  className="inline-block rounded-lg bg-[#11b5ae] px-8 py-4 text-white font-bold transition hover:bg-[#0f9d97]"
->
-  Send Your Resume
-</button>
+            onClick={() => setShowResumeForm(true)}
+            className="inline-block rounded-lg bg-[#11b5ae] px-8 py-4 text-white font-bold transition hover:bg-[#0f9d97]"
+          >
+            Send Your Resume
+          </button>
 
           <p className="mt-6 text-gray-500">
             info@goldennestholidayhomes.com
@@ -221,6 +219,7 @@ const submitted =
         action="https://formsubmit.co/info@goldennestholidayhomes.com"
         method="POST"
         encType="multipart/form-data"
+        onSubmit={handleResumeSubmit}
         className="space-y-4"
       >
         <input
@@ -240,14 +239,14 @@ const submitted =
         />
 
         <input
-  type="tel"
-  name="phone"
-  placeholder="Phone Number"
-  required
-  pattern="[0-9]{10}"
-  title="Please enter a valid 10-digit phone number"
-  className="w-full border rounded-lg p-3"
-/>
+          type="tel"
+          name="phone"
+          placeholder="Phone Number (e.g., +971 50 123 4567)"
+          required
+          pattern="[\d\s\-\+\(\)]{7,}"
+          title="Please enter a valid phone number (Dubai/UAE format: +971 or local)"
+          className="w-full border rounded-lg p-3"
+        />
 
         <input
           type="file"
@@ -294,6 +293,43 @@ const submitted =
         </button>
       </form>
 
+    </div>
+  </div>
+)}
+
+{/* SUCCESS MODAL */}
+{showSuccessModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+    <div className="bg-white rounded-3xl w-full max-w-md p-8 text-center shadow-2xl animate-in fade-in scale-95">
+      <div className="flex justify-center mb-6">
+        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+          <CheckCircle className="w-12 h-12 text-green-500" />
+        </div>
+      </div>
+
+      <h3 className="text-2xl font-bold text-[#0d0d3f] mb-3">
+        Application Sent! 🎉
+      </h3>
+
+      <p className="text-[#5b6475] mb-6 leading-7">
+        Thank you for applying! We've received your resume and will review it carefully. We'll be in touch soon if there's a great fit for our team.
+      </p>
+
+      <div className="bg-[#eef8f7] rounded-xl p-4 mb-6">
+        <p className="text-sm text-[#11b5ae] font-semibold">
+          📧 Check your email for confirmation
+        </p>
+      </div>
+
+      <button
+        onClick={() => {
+          setShowSuccessModal(false);
+          setShowResumeForm(false);
+        }}
+        className="bg-[#11b5ae] hover:bg-[#0e9c96] text-white px-8 py-3 rounded-xl font-semibold transition w-full"
+      >
+        Got It!
+      </button>
     </div>
   </div>
 )}

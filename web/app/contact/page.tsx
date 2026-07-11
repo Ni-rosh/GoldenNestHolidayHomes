@@ -10,56 +10,17 @@ import {
   MapPin,
   Send,
   Clock3,
+  CheckCircle,
 } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
 import { useState } from "react";
 
 export default function ContactPage() {
+  const [showModal, setShowModal] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    property: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-
-  };
-
-  const handleSubmit = (
-    e: React.FormEvent
-  ) => {
-
-    e.preventDefault();
-
-    const subject = encodeURIComponent(
-      "New Inquiry - Golden Nest Holiday Homes"
-    );
-
-    const body = encodeURIComponent(`
-Full Name: ${formData.name}
-
-Email: ${formData.email}
-
-Phone: ${formData.phone}
-
-Interested Property: ${formData.property}
-
-Message:
-${formData.message}
-    `);
-
-    window.location.href =
-      `mailto:info@goldennestholidayhomes.com?subject=${subject}&body=${body}`;
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Don't prevent default - let the form submit naturally
+    setShowModal(true);
   };
 
   return (
@@ -297,11 +258,13 @@ transition
             </h2>
 
             <p className="text-[#5b6475] text-xs md:text-sm leading-6 md:leading-7 mb-6 md:mb-8">
-              Fill out the form below and your email app will open automatically.
+              Fill out the form below and we'll get back to you shortly.
             </p>
 
             {/* FORM */}
             <form
+              action="https://formsubmit.co/info@goldennestholidayhomes.com"
+              method="POST"
               onSubmit={handleSubmit}
               className="space-y-4 md:space-y-5"
             >
@@ -317,9 +280,8 @@ transition
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     placeholder="Your full name"
+                    required
                     className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                   />
                 </div>
@@ -332,9 +294,8 @@ transition
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     placeholder="you@example.com"
+                    required
                     className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                   />
                 </div>
@@ -348,37 +309,39 @@ transition
                 </label>
 
                 <input
-                  type="text"
+                  type="tel"
                   name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+971..."
+                  placeholder="+971 50 123 4567"
+                  required
+                  pattern="[\d\s\-\+\(\)]{7,}"
+                  title="Please enter a valid phone number (e.g., +971 50 123 4567)"
                   className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
 
               {/* PROPERTY */}
-             <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
+             <div>
+                <label className="block text-[#0d0d3f] font-medium mb-2 text-xs md:text-sm">
                   Interested Property 
                 </label>
-<select
-  name="property"
-  required
-  className="w-full rounded-2xl border border-gray-200 px-5 py-4 bg-white text-gray-700"
->
-  <option value="">Select a Property</option>
+                <select
+                  name="property"                  
+                  className="w-full rounded-2xl border border-gray-200 px-5 py-4 bg-white text-gray-700"
+                >
+                  <option value="">Select a Property</option>
 
-  <option value="Al Nahda 1">Al Nahda 1</option>
-  <option value="Al Nahda 2">Al Nahda 2</option>
-  <option value="Al Nahda 2 Family Room">Al Nahda 2 Family Room</option>
-  <option value="Al Qusais 1">Al Qusais 1</option>
-  <option value="Al Qusais 2">Al Qusais 2</option>
-  <option value="Al Mamzar">Al Mamzar</option>
-  <option value="Al Karama">Al Karama</option>
-  <option value="Al Ghubaiba">Al Ghubaiba</option>
-  <option value="Bur Dubai">Bur Dubai</option>
-  <option value="Sharjah Female Accommodation">Sharjah Female Accommodation</option>
-</select>
+                  <option value="Al Nahda 1">Al Nahda 1</option>
+                  <option value="Al Nahda 2">Al Nahda 2</option>
+                  <option value="Al Nahda 2 Family Room">Al Nahda 2 Family Room</option>
+                  <option value="Al Qusais 1">Al Qusais 1</option>
+                  <option value="Al Qusais 2">Al Qusais 2</option>
+                  <option value="Al Mamzar">Al Mamzar</option>
+                  <option value="Al Karama">Al Karama</option>
+                  <option value="Al Ghubaiba">Al Ghubaiba</option>
+                  <option value="Bur Dubai">Bur Dubai</option>
+                  <option value="Sharjah Female Accommodation">Sharjah Female Accommodation</option>
+                </select>
+              </div>
 
               {/* MESSAGE */}
               <div>
@@ -389,12 +352,33 @@ transition
                 <textarea
                   rows={4}
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   placeholder="Tell us about your requirement..."
+                  required
                   className="w-full border border-[#dfeaea] rounded-xl md:rounded-2xl px-3 md:px-4 py-2 md:py-3 outline-none focus:border-[#11b5ae] bg-white text-[#0d0d3f] placeholder:text-gray-400 text-sm md:text-base resize-none"
                 ></textarea>
               </div>
+
+              {/* Hidden Fields */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Inquiry - Golden Nest Holiday Homes"
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://goldennestholidayhomes.com/contact?submitted=true"
+              />
+              <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+              />
+              <input
+                type="hidden"
+                name="_template"
+                value="table"
+              />
 
               {/* BUTTONS */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 pt-3 md:pt-5">
@@ -419,6 +403,40 @@ transition
               </div>
 
             </form>
+
+            {/* SUCCESS MODAL */}
+            {showModal && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+                <div className="bg-white rounded-3xl w-full max-w-md p-8 text-center shadow-2xl animate-in fade-in scale-95">
+                  <div className="flex justify-center mb-6">
+                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-12 h-12 text-green-500" />
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-[#0d0d3f] mb-3">
+                    Message Sent! 🎉
+                  </h3>
+
+                  <p className="text-[#5b6475] mb-6 leading-7">
+                    Thank you for reaching out! We've received your inquiry and will get back to you shortly. We appreciate your interest in Golden Nest Holiday Homes.
+                  </p>
+
+                  <div className="bg-[#eef8f7] rounded-xl p-4 mb-6">
+                    <p className="text-sm text-[#11b5ae] font-semibold">
+                      📧 Check your email for updates
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="bg-[#11b5ae] hover:bg-[#0e9c96] text-white px-8 py-3 rounded-xl font-semibold transition w-full"
+                  >
+                    Got It!
+                  </button>
+                </div>
+              </div>
+            )}
 
           </div>
 
