@@ -12,7 +12,7 @@ import {
   Clock3,
   CheckCircle,
 } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -195,9 +195,47 @@ transition
   </div>
 
 </div>
-            {/* OFFICE */}
             <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
 
+  <div className="flex items-start gap-4">
+
+    <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#e7f3ff] flex items-center justify-center shrink-0">
+
+      <FaFacebookF className="w-5 md:w-6 h-5 md:h-6 text-[#1877f2]" />
+
+    </div>
+
+    <div>
+
+      <p className="text-[#11b5ae] text-xs font-semibold uppercase tracking-[3px] mb-2">
+        FACEBOOK
+      </p>
+
+      <h3 className="text-lg md:text-xl font-bold text-[#0d0d3f]">
+        Golden Nest Holiday Homes
+      </h3>
+
+      <p className="text-[#5b6475] mt-3 text-sm leading-7">
+        Follow our Facebook page for latest updates, property highlights, and special offers.
+      </p>
+
+      <a
+        href="https://www.facebook.com/share/192SnEjzLW/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center mt-4 rounded-full bg-[#1877f2] px-5 py-2.5 font-semibold text-white hover:scale-105 transition"
+      >
+        <FaFacebookF className="w-5 h-5 mr-2" />
+        Follow on Facebook
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+            {/* OFFICE */}
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-[#edf3f3]">
               <div className="flex items-start gap-3 md:gap-4">
 
                 <div className="w-10 md:w-12 h-10 md:h-12 rounded-xl md:rounded-2xl bg-[#eef8f7] flex items-center justify-center shrink-0">

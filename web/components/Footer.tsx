@@ -6,7 +6,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer
@@ -183,6 +183,28 @@ const Footer = () => {
     Instagram
   </span>
 </a>
+
+  <a
+    href="https://www.facebook.com/share/192SnEjzLW/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      inline-flex items-center gap-2
+      rounded-full
+      px-4 py-2
+      bg-[#1877f2]
+      text-white
+      shadow-lg
+      hover:scale-105
+      hover:shadow-xl
+      transition-all duration-300
+    "
+  >
+    <FaFacebookF className="text-lg" />
+    <span className="text-sm font-semibold">
+      Facebook
+    </span>
+  </a>
 
 </div>
             </div>
